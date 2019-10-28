@@ -12,7 +12,15 @@ namespace CourseApp
 
         public static double[] TaskA(double b, double xn, double xk, double dx)
         {
-            return new double[0];
+            int i = 0;
+            var y = new double[(int)((xk - xn) / dx)];
+            for (double x = xn; x < xk; x += dx)
+            {
+                y[i] = Matem(b, x);
+                i++;
+            }
+
+            return y;
         }
 
         public static double[] TaskB(double b, double[] x)
@@ -28,15 +36,24 @@ namespace CourseApp
 
         public static void Main(string[] args)
         {
+        const double xn = 1.28;
+        const double xk = 3.28;
+        const double dx = 0.4;
         const double b = 2.5;
-        var resSingle = Matem(b, 4);
-        Console.WriteLine(resSingle);
-        var x = new double[] { 1.1, 2.4, 3.6, 1.7, 3.9 };
-        var taskBRes = TaskB(b, x);
-            foreach (var item in taskBRes)
+        Console.WriteLine("Задание А:");
+            foreach (var item in TaskA(b, xn, xk, dx))
             {
                 Console.WriteLine($"y = {item}");
             }
+
+            Console.WriteLine("Задание B:");
+            var x = new double[] { 1.1, 2.4, 3.6, 1.7, 3.9 };
+            foreach (var item in TaskB(b, x))
+            {
+                Console.WriteLine($"y = {item}");
+            }
+
+            Console.ReadLine();
         }
     }
 }
