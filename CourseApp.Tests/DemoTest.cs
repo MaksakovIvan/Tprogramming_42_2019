@@ -1,5 +1,6 @@
 using System;
 using Xunit;
+using NUnit.Framework;
 
 namespace CourseApp.Tests
 {
@@ -8,17 +9,34 @@ namespace CourseApp.Tests
         [Fact]
         public void Test1()
         {
-            Assert.True(true);
+            Xunit.Assert.True(true);
         }
 
-        [Theory]
-        [InlineData(0, 0, 0)]
-        [InlineData(0, 2, 1)]
-        [InlineData(1, 2, 1)]
-        public void TestFunctionCalculationVal(double b, double x, double exp)
+        [Fact]
+        public void TestMyFunctionZeros()
         {
-            var res = Program.Matem(b, x);
-            Assert.Equal(exp, res, 3);
+            var res = Program.Matem(0.0, 0.0);
+            Xunit.Assert.Equal(double.PositiveInfinity, res);
+        }
+
+        [Fact]
+        public void TestTaskBNullMass()
+        {
+            var mass = new double[0];
+            var res = Program.TaskB(2, mass);
+            Xunit.Assert.Equal(mass, res);
+        }
+
+        [Fact]
+        public void TestTaskB()
+        {
+            var x = new double[] { 1.1, 2.4, 3.6, 1.7, 3.9 };
+            var res = Program.TaskB(2.5, x);
+            var expy = new double[] { 0.750082078454372, 0.639743913195054, 0.504058298008105, 0.699366948598495, 0.381615534970301 };
+            for (int i = 0; i < 5; i++)
+            {
+                NUnit.Framework.Assert.AreEqual(expy[i], res[i], 0.00001);
+            }
         }
     }
 }
