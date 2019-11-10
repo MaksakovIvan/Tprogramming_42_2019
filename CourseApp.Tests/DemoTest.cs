@@ -1,6 +1,5 @@
 using System;
 using Xunit;
-using NUnit.Framework;
 
 namespace CourseApp.Tests
 {
@@ -35,7 +34,7 @@ namespace CourseApp.Tests
             var expy = new double[] { 0.750082078454372, 0.639743913195054, 0.504058298008105, 0.699366948598495, 0.381615534970301 };
             for (int i = 0; i < 5; i++)
             {
-                NUnit.Framework.Assert.AreEqual(expy[i], res[i], 0.00001);
+                Xunit.Assert.Equal(expy[i], res[i], 3);
             }
         }
     }
