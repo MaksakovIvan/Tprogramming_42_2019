@@ -5,6 +5,14 @@ namespace CourseApp.Tests
 {
     public class DemoTest
     {
+        [Theory]
+        [InlineData(0.7, 5, 0.290669706554148)]
+        [InlineData(1, 5, 0.2053945770368)]
+        public void TestMyFunction(double b, double x, double exp)
+        {
+            Assert.Equal(Program.Matem(b, x), exp, 3);
+        }
+
         [Fact]
         public void Test1()
         {
