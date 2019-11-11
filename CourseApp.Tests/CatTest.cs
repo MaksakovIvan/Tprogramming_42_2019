@@ -47,5 +47,12 @@ namespace CourseApp.Tests
             item.Gender = "demale";
             Assert.Equal("female", item.Gender);
         }
+
+        [Fact]
+        public void Test()
+        {
+            var item = new Cat("barsik");
+            Assert.Equal("barsik", item.Name);
+        }
     }
 }
