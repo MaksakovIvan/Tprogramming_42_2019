@@ -23,20 +23,18 @@ namespace CourseApp.Tests
         }
 
         [Fact]
-        public void TestIncorrectSetAge()
-        {
-            var item = new Cat();
-            item.Age = -5;
-            Assert.Equal(0, item.Age);
-        }
-
-        [Fact]
         public void TestCorrectIncorrectSetAge()
         {
-            var item = new Cat();
-            item.Age = 10;
-            item.Age = -5;
-            Assert.Equal(10, item.Age);
+        var item = new Cat();
+        try
+            {
+                item.Age = -5;
+            }
+        catch (System.Exception)
+            {
+                Console.WriteLine("Не правильно введен возраст");
+                Assert.True(true);
+            }
         }
 
         [Fact]

@@ -43,7 +43,7 @@ namespace CourseApp
                 }
                 else
                 {
-                    Console.WriteLine("Age should be > 0 and < than 21");
+                    throw new System.Exception();
                 }
             }
         }
