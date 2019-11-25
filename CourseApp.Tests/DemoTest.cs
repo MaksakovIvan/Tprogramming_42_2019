@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace CourseApp.Tests
@@ -29,7 +30,7 @@ namespace CourseApp.Tests
         [Fact]
         public void TestTaskBNullMass()
         {
-            var mass = new double[0];
+            List<double> mass = new List<double>();
             var res = Program.TaskB(2, mass);
             Xunit.Assert.Equal(mass, res);
         }
@@ -37,10 +38,10 @@ namespace CourseApp.Tests
         [Fact]
         public void TestTaskB()
         {
-            var x = new double[] { 1.1, 2.4, 3.6, 1.7, 3.9 };
+            List<double> x = new List<double>() { 1.1, 2.4, 3.6, 1.7, 3.9 };
             var res = Program.TaskB(2.5, x);
-            var expy = new double[] { 0.750082078454372, 0.639743913195054, 0.504058298008105, 0.699366948598495, 0.381615534970301 };
-            for (int i = 0; i < 5; i++)
+            var expy = new List<double> { 0.750082078454372, 0.639743913195054, 0.504058298008105, 0.699366948598495, 0.381615534970301 };
+            for (int i = 0; i < res.Count; i++)
             {
                 Xunit.Assert.Equal(expy[i], res[i], 3);
             }

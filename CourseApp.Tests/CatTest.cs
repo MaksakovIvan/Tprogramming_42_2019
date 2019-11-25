@@ -23,7 +23,7 @@ namespace CourseApp.Tests
         }
 
         [Fact]
-        public void TestCorrectIncorrectSetAge()
+        public void TestIncorrectSetAge()
         {
         var item = new Cat();
         try
@@ -38,12 +38,18 @@ namespace CourseApp.Tests
         }
 
         [Fact]
-        public void TestCorrectIncorrectSetGender()
+        public void TestIncorrectSetGender()
         {
-            var item = new Cat();
-            item.Gender = "female";
-            item.Gender = "demale";
-            Assert.Equal("female", item.Gender);
+        var item = new Cat();
+        try
+            {
+                item.Gender = "demale";
+            }
+        catch (System.Exception)
+            {
+                Console.WriteLine("Не правильно введен пол");
+                Assert.True(true);
+            }
         }
 
         [Fact]
@@ -51,6 +57,15 @@ namespace CourseApp.Tests
         {
             var item = new Cat("barsik");
             Assert.Equal("barsik", item.Name);
+        }
+
+        [Fact]
+        public void TestFullConstructor()
+        {
+            var item = new Cat("barsik", 5, "male");
+            Assert.Equal(5, item.Age);
+            Assert.Equal("barsik", item.Name);
+            Assert.Equal("male", item.Gender);
         }
     }
 }
