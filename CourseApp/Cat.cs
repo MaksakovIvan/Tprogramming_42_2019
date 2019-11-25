@@ -73,7 +73,7 @@ namespace CourseApp
             return $"Имя:{Name},Возраст:{Age},Пол:{Gender}";
         }
 
-        public void SayMyew()
+        public void SayMeow()
         {
             Console.WriteLine($"{Name}:Мяу");
         }
