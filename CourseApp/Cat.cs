@@ -63,14 +63,14 @@ namespace CourseApp
                 }
                 else
                 {
-                    Console.WriteLine("Не правильно введен пол");
+                    throw new System.Exception();
                 }
             }
         }
 
-        public void GetInfo()
+         public override string ToString()
         {
-            Console.WriteLine($"Имя:{Name},Возраст:{Age},Пол:{Gender}");
+            return $"Имя:{Name},Возраст:{Age},Пол:{Gender}";
         }
 
         public void SayMyew()
