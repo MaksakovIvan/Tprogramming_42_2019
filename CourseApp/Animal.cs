@@ -3,13 +3,11 @@ using System.Collections.Generic;
 
 namespace CourseApp
 {
-    public class Animal
+    public abstract class Animal
     {
         private int age;
 
         private string gender;
-
-        public string Name { get; set; }
 
         public Animal()
         : this("Unnamed")
@@ -27,6 +25,8 @@ namespace CourseApp
             Age = age;
             Gender = gender;
         }
+
+        public string Name { get; set; }
 
         public int Age
         {
@@ -67,10 +67,17 @@ namespace CourseApp
                 }
             }
         }
-        
+
          public override string ToString()
         {
             return $"Имя:{Name},Возраст:{Age},Пол:{Gender}";
         }
+
+        public void AgeUp()
+        {
+            this.age++;
+        }
+
         public abstract void SayAnything();
     }
+}

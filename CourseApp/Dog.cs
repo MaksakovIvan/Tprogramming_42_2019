@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace CourseApp
 {
-    public class Cat : Animal
+    public class Dog : Animal
     {
-        public Cat(string name, string brood)
+        public Dog(string name, string brood)
         : base(name)
         {
             Brood = brood;
@@ -15,7 +15,7 @@ namespace CourseApp
 
         public override void SayAnything()
         {
-            Console.WriteLine($"{Name}:Мяу");
+            Console.WriteLine($"{Name}:Гав");
         }
 
         public override string ToString()
