@@ -54,6 +54,15 @@ namespace CourseApp
             {
                 Console.WriteLine($"y = {item}");
             }
+
+            Animal[] array = new Animal[2];
+            array[0] = new Cat("barsik", 5, "male");
+            array[1] = new Dog("Sharik", 3, "male");
+
+            for (int i = 0; i < 2; i++)
+            {
+                array[i].SayAnything();
+            }
         }
     }
 }

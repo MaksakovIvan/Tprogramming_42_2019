@@ -5,22 +5,39 @@ namespace CourseApp
 {
     public class Cat : Animal
     {
-        public Cat(string name, string brood)
-        : base(name)
+        public Cat()
+        : this("Unnamed")
         {
-            Brood = brood;
         }
 
-        public string Brood { get; set; }
+        public Cat(string name)
+        : this(name, 0, "male")
+        {
+        }
+
+        public Cat(string name, int age, string gender)
+        {
+            Name = name;
+            Age = age;
+            Gender = gender;
+        }
+
+        public Cat(string name, string breed)
+        : base(name)
+        {
+            Breed = breed;
+        }
+
+        public string Breed { get; set; }
 
         public override void SayAnything()
         {
-            Console.WriteLine($"{Name}:Мяу");
+            Console.WriteLine($"{Name}: Мяу");
         }
 
         public override string ToString()
         {
-            return $"Имя:{Name},Возраст:{Age},Пол:{Gender},Порода:{Brood}";
+            return $"Имя:{Name},Возраст:{Age},Пол:{Gender},Порода:{Breed}";
         }
     }
 }
