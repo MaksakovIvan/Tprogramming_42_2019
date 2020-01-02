@@ -63,8 +63,6 @@ namespace CourseApp
             {
                 array[i].SayAnything();
             }
-
-            Console.WriteLine(Data.Age());
         }
     }
 }

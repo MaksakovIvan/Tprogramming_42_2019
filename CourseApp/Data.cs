@@ -7,31 +7,36 @@ namespace CourseApp
     {
         public static DateTime SetDate()
         {
-            Console.WriteLine("Введите день рождения");
+            Console.WriteLine("День:");
             int day = int.Parse(Console.ReadLine());
-            Console.WriteLine("Введите месяц рождения");
+            Console.WriteLine("Месяц:");
             int mounth = int.Parse(Console.ReadLine());
-            Console.WriteLine("Введите год рождения");
+            Console.WriteLine("Год:");
             int year = int.Parse(Console.ReadLine());
             DateTime date = new DateTime(year, mounth, day);
             return date;
         }
 
-        public static string Age()
+        public static string Age(DateTime birthday, DateTime timeNow)
         {
-            DateTime birthday = Data.SetDate();
-            DateTime timeNow = Data.SetDate();
-            DateTime age;
-            if (birthday.Ticks < timeNow.Ticks)
+            DateTime age = Inequality(birthday, timeNow);
+            if (age.Day - 1 == 0 && age.Month - 1 == 0 && age.Year - 1 == 0)
             {
-                age = new DateTime(timeNow.Ticks - birthday.Ticks);
-            }
-            else
-            {
-                throw new Exception();
+                return $"congratulations you are born";
             }
 
             return $"Вам {age.Day - 1} дня,{age.Month - 1} месяцев, {age.Year - 1} лет";
+        }
+
+        public static DateTime Inequality(DateTime date1, DateTime date2)
+        {
+            if (date1.Ticks <= date2.Ticks)
+            {
+                DateTime age = new DateTime(date2.Ticks - date1.Ticks);
+                return age;
+            }
+
+            throw new Exception();
         }
     }
 }

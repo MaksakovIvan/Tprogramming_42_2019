@@ -6,25 +6,30 @@ namespace CourseApp.Tests
     public class DataTest
     {
         [Fact]
-        public void TestAgeVchera()
+        public void TestBefore()
         {
-            string st = $"Вам 10 лет, 0 месяцев и 1 дня";
-            Assert.Equal(st, Data.Age());
-        }
-
-        [Theory]
-        [InlineData(7,7,7,9,9,9)]
-        public void TestAgeToday()
-        {
-            string st = $"Вам 8 лет, 0 месяцев и 0 дня";
-            Assert.Equal(st, Data.Age());
+            string st = $"Вам 1 дня,0 месяцев, 20 лет";
+            Assert.Equal(st, Data.Age(new DateTime(2000, 1, 1), new DateTime(2020, 1, 2)));
         }
 
         [Fact]
-        public void TestAgeTommorow()
+        public void TestToday()
         {
-            string st = $"Вам 10 лет, 0 месяцев и 0 дня";
-            Assert.Equal(st, Data.Age());
+            string st = $"congratulations you are born";
+            Assert.Equal(st, Data.Age(new DateTime(2020, 1, 1), new DateTime(2020, 1, 1)));
+        }
+
+        [Fact]
+        public void TestFuture()
+        {
+            try
+            {
+                Assert.Equal(0, DateTime.Compare(DateTime.Now, Data.Inequality(new DateTime(2020, 1, 2), new DateTime(2077, 4, 2))));
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Birthday > Today");
+            }
         }
     }
 }
