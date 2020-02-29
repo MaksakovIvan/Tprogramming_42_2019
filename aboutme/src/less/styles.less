@@ -1,0 +1,123 @@
+@import "bootstrap/bootstrap.less";
+@import "variables.less";
+
+p {
+    margin: 20px 0;
+}
+
+.form-control {
+	box-shadow: none;
+}
+
+
+body {
+  	background-image: url(../images/bg.png);
+	border-top: 5px solid #7e7e7e;
+
+	.wrapper {
+		padding: 0 0 50px 0;
+
+		header {
+			padding: 20px 0;
+
+            .form-search {
+              width: 200px;
+            }
+		}
+
+		.heading {
+		  	background: transparent url(../images/h1-bg.png);
+			height: 40px;
+			margin: 30px 0;
+			padding-left: 20px;
+
+			h1 {
+			  	background: url(../images/bg.png);
+			  	color: #7e7e7e;
+				display: inline-block;
+				font: normal 40px/40px @brand-font;
+				margin: 0;
+				padding: 0 10px;
+				text-transform: uppercase;
+			}
+		}
+
+        .jumbotron {
+            border-radius: 0;
+            padding: 0;
+            margin: 0;
+
+            blockquote {
+                border-left: none;
+
+                p {
+                    font: 300 italic 33px @brand-font;
+                    text-transform: uppercase;
+                    margin-bottom: 0;
+                }
+
+                small {
+                    text-align: right;
+                    color: #1D8EA6;
+                    font: 300 20px @brand-font;
+
+                    &:before {
+                      content: '';
+                    }
+                }
+            }
+        }
+
+        h2 {
+            background: none repeat scroll 0 0 #29C5E6;
+            color: #fff;
+            font: 300 30px @brand-font;
+            padding: 0 10px;
+            text-transform: uppercase;
+        }
+
+	}
+
+	footer {
+	  	background: #7e7e7e;
+	  	color: #dbdbdb;
+	  	font-size: 11px;
+	  	line-height:  13px;
+
+	  	.container {
+			height: 110px;
+			padding: 10px 0;
+
+			h3 {
+			  	border-bottom: 1px solid #919191;
+			  	color: #ffffff;
+			  	font-size: 14px;
+			  	line-height: 21px;
+			  	font-family: @brand-font;
+			  	margin: 0 0 10px;
+			  	text-transform: uppercase;
+			}
+
+			p {
+			  	margin: 5px 0;
+			}
+
+
+			a {
+			  	color: #dbdbdb;
+			}
+
+
+			.footer-logo {
+			  	float: right;
+			  	margin-top: 20px;
+			  	font-size: 10px;
+			  	text-align: right;
+
+			  	a {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
